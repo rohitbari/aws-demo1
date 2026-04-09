@@ -2,18 +2,15 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.11
     commands:
       - echo Installing dependencies...
-      - pip install -r requirements.txt || echo "No requirements file"
 
   build:
     commands:
-      - echo Build started
-      - python app.py || echo "No app file"
-
-  post_build:
-    commands:
-      - echo Build completed
+      - echo Running tests...
+      - python -m unittest discover
 
 artifacts:
   files:
